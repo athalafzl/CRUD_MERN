@@ -1,0 +1,215 @@
+.register-page-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f5fa;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  overflow-y: auto;
+}
+
+.register-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 20px;
+  padding: 44px 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+  text-align: center;
+  margin: auto;
+}
+
+.register-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 32px 0;
+  letter-spacing: -0.5px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.input-group-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 0 14px;
+  height: 48px;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  gap: 10px;
+}
+
+.input-box:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.input-field {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #0f172a;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-field::placeholder {
+  color: #94a3b8;
+  font-size: 13.5px;
+}
+
+.toggle-password-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  transition: color 0.15s ease;
+}
+
+.toggle-password-btn:hover {
+  color: #334155;
+}
+
+.register-submit-btn {
+  width: 100%;
+  height: 48px;
+  background-color: #0d1527;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.register-submit-btn:hover {
+  background-color: #1e293b;
+}
+
+.register-submit-btn:active {
+  transform: scale(0.99);
+}
+
+.register-message {
+  margin-bottom: 20px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.register-message.error {
+  background-color: #fef2f2;
+  border: 1px solid #fee2e2;
+  color: #dc2626;
+}
+
+.register-message.success {
+  background-color: #f0fdf4;
+  border: 1px solid #dcfce7;
+  color: #16a34a;
+}
+
+.register-footer {
+  margin-top: 36px;
+  font-size: 13.5px;
+  color: #475569;
+}
+
+.register-footer-link {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.register-footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 480px) {
+  .register-page-container {
+    padding: 16px 12px;
+  }
+
+  .register-card {
+    padding: 32px 20px;
+    border-radius: 16px;
+  }
+
+  .register-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .input-box {
+    height: 46px;
+    padding: 0 12px;
+  }
+
+  .register-submit-btn {
+    height: 46px;
+    font-size: 14px;
+  }
+
+  .register-footer {
+    margin-top: 28px;
+    font-size: 13px;
+  }
+}
