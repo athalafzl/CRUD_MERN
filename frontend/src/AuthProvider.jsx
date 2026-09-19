@@ -16,11 +16,14 @@ function AuthProvider({ children }) {
 
     async function getProfile() {
       try {
-        const response = await fetch("http://localhost:3000/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
+        const response = await fetch(
+          "https://crud-mern-15iw.vercel.app/profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           },
-        });
+        );
 
         const dataProfile = await response.json();
 
