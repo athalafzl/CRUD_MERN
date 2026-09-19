@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 function Buku({ setMessage, message }) {
   const [buku, setBuku] = useState([]);
+  const [isLoadingBuku, setIsLoadingBuku] = useState(true);
   const [judul, setJudul] = useState("");
   const [penulis, setPenulis] = useState("");
   const [tahun, setTahun] = useState("");
@@ -12,6 +13,7 @@ function Buku({ setMessage, message }) {
     const token = localStorage.getItem("token");
 
     async function getBuku() {
+      setIsLoadingBuku(true);
       try {
         const response = await fetch("http://localhost:3000/buku", {
           headers: {
@@ -23,6 +25,8 @@ function Buku({ setMessage, message }) {
         setBuku(dataBuku.data);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoadingBuku(false);
       }
     }
 
@@ -188,7 +192,41 @@ function Buku({ setMessage, message }) {
               </tr>
             </thead>
             <tbody>
-              {buku && buku.length > 0 ? (
+              {isLoadingBuku ? (
+                <tr>
+                  <td
+                    colSpan="4"
+                    style={{
+                      textAlign: "center",
+                      padding: "48px 20px",
+                      color: "#64748b",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "12px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: "28px",
+                          height: "28px",
+                          borderRadius: "50%",
+                          border: "3px solid #e2e8f0",
+                          borderTopColor: "#0d1527",
+                          animation: "loadingSpin 0.8s linear infinite",
+                        }}
+                      />
+                      <span style={{ fontSize: "13.5px", fontWeight: 500 }}>
+                        Memuat data buku...
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              ) : buku && buku.length > 0 ? (
                 buku.map((item) => {
                   return (
                     <tr key={item._id}>

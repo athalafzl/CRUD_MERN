@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
+import LoadingScreen from "./LoadingScreen";
 
 function ProtectedRoute({ children, loading }) {
   const { profile } = useContext(AuthContext);
@@ -11,7 +12,7 @@ function ProtectedRoute({ children, loading }) {
   });
 
   return loading === true ? (
-    <h1>Loading...</h1>
+    <LoadingScreen text="Memuat akun..." subtext="Menyiapkan dashboard Anda" />
   ) : profile ? (
     children
   ) : (
