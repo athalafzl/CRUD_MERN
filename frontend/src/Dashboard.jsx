@@ -15,7 +15,7 @@ function Buku({ setMessage, message }) {
     async function getBuku() {
       setIsLoadingBuku(true);
       try {
-        const response = await fetch("http://localhost:3000/buku", {
+        const response = await fetch("https://crud-mern-15iw.vercel.app/buku", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -57,7 +57,7 @@ function Buku({ setMessage, message }) {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch("http://localhost:3000/buku", {
+      const response = await fetch("https://crud-mern-15iw.vercel.app/buku", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -94,18 +94,21 @@ function Buku({ setMessage, message }) {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch(`http://localhost:3000/buku/${editId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        `https://crud-mern-15iw.vercel.app/buku/${editId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            judul,
+            penulis,
+            tahun: Number(tahun),
+          }),
         },
-        body: JSON.stringify({
-          judul,
-          penulis,
-          tahun: Number(tahun),
-        }),
-      });
+      );
 
       const dataBuku = await response.json();
 
@@ -147,7 +150,7 @@ function Buku({ setMessage, message }) {
   async function handleDelete(id) {
     const token = localStorage.getItem("token");
 
-    await fetch(`http://localhost:3000/buku/${id}`, {
+    await fetch(`https://crud-mern-15iw.vercel.app/buku/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
