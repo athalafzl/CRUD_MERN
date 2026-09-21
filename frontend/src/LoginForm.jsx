@@ -4,11 +4,11 @@ import "./LoginForm.css";
 
 function LoginForm({ login, onChange, onSubmit, message }) {
   const [showPassword, setShowPassword] = useState(false);
+  const msgLower = message?.toLowerCase() || "";
   const isSuccess =
-    message === "Login berhasil" ||
-    message === "Login successful" ||
-    message?.toLowerCase().includes("berhasil") ||
-    message?.toLowerCase().includes("successful");
+    msgLower.includes("berhasil") ||
+    msgLower.includes("success") ||
+    msgLower.includes("succes");
 
   return (
     <div className="login-page-container">

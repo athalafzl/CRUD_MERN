@@ -47,8 +47,7 @@ function App() {
       return;
     }
 
-    setMessage("Login Succesful");
-
+    setMessage("Login Successful");
     setTimeout(() => {
       navigate("/dashboard");
     }, 2000);
