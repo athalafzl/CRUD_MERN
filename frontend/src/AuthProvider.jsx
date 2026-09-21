@@ -16,14 +16,11 @@ function AuthProvider({ children }) {
 
     async function getProfile() {
       try {
-        const response = await fetch(
-          "https://crud-mern-15iw.vercel.app/profile",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+        const response = await fetch("/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
           },
-        );
+        });
 
         const dataProfile = await response.json();
 
@@ -44,19 +41,16 @@ function AuthProvider({ children }) {
 
   async function login(email, password) {
     try {
-      const response = await fetch(
-        "https://crud-mern-15iw.vercel.app/users/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email,
-            password,
-          }),
+      const response = await fetch("/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
       const data = await response.json();
       if (!response.ok) {
         return data.message;
@@ -68,7 +62,7 @@ function AuthProvider({ children }) {
 
       const token = localStorage.getItem("token");
 
-      const responseProfile = await fetch("http://localhost:3000/profile", {
+      const responseProfile = await fetch("/profile", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
